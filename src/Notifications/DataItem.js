@@ -23,7 +23,7 @@ export default class DataItem extends Component {
           </View>
           <View style={styles.viewNotifi}>
             <Text style={styles.txtTyofnews}>{dataNotifi.data.title}</Text>
-            <Text numberOfLines={1} style={styles.txtTitle}>{dataNotifi.data.body}</Text>
+            <Text numberOfLines={1} style={styles.txtBody}>{dataNotifi.data.body}</Text>
           </View>
           <View style={styles.viewIconLeft}>
             <Entypo name="chevron-thin-right" size={15} />
@@ -66,13 +66,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 55,
     height: 55,
-    marginRight: 20
+    marginRight: 10
   },
   txtTyofnews: {
     fontSize: 16,
     color: '#000'
   },
-  txtTitle: {
-    fontSize: 14
+  txtBody: {
+    fontSize: 14,
+    marginRight: 20
   },
 });

@@ -59,6 +59,8 @@ class HomeNotification extends Component {
           body: notification.data.body,
           messager: notification.data.messager,
           data: notification.data,
+          content: notification.data.content,
+          image: notification.data.image,
         };
         this.localShowNotification(dataNotifi);
       });
@@ -74,6 +76,8 @@ class HomeNotification extends Component {
             body: notificationOpen.data.body,
             messager: notificationOpen.data.messager,
             data: notificationOpen.data,
+            image: notificationOpen.data.image,
+            content: notificationOpen.data.content,
           };
           this.handleCustomData(dataNotifi);
         }
@@ -90,9 +94,10 @@ class HomeNotification extends Component {
           body: notificationOpen.notification.data.body,
           messager: notificationOpen.notification.data.messager,
           data: notificationOpen.notification.data,
+          image: notificationOpen.notification.data.image,
+          content: notificationOpen.notification.content,
         };
         this.handleCustomData(dataNotifi);
-        this.props.navigation.navigate('DetailNotifications', { dataNotifi: dataNotifi });
       });
   }
 
@@ -125,7 +130,9 @@ class HomeNotification extends Component {
           body: notifi.body,
           messager: notifi.messager,
           id: notifi.id,
-          custom_data: notifi.data
+          custom_data: notifi.data,
+          image: notifi.image,
+          content: notifi.content
         });
       // Build a channel
       const channel = new firebase.notifications.Android.Channel('default_notification_channel_id', 'default_notification_channel_id',
@@ -147,16 +154,13 @@ class HomeNotification extends Component {
             <Ionicons name="md-menu" size={20} color='#fff' />
           </TouchableOpacity>
           <View style={styles.viewHeader}>
-            <Text style={styles.welcome}>Welcome to React Native Firebase Client!</Text>
+            <Text style={styles.welcome}>Push Notification</Text>
           </View>
           <TouchableOpacity style={styles.btnNotifi} onPress={() => this.props.navigation.navigate('Notifications')}>
             <Ionicons name="ios-notifications" size={20} color='#fff' />
           </TouchableOpacity>
         </View>
         <ScrollView style={{ paddingHorizontal: 20 }}>
-          <Text style={styles.feedback}>
-            Remote notif won't be available to iOS emulators
-              </Text>
           <Text style={styles.feedback}>{this.state.tokenCopyFeedback}</Text>
           <Text style={styles.feedback} selectable={true}
             onPress={() => this.setClipboardContent(this.state.fcmToken)}>
