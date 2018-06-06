@@ -1,4 +1,5 @@
 import { AppRegistry } from 'react-native';
-import HomeNotification from './src/index';
+// import HomeNotification from './src/index';
+import fcmPhp from './src/fcmPhp';
 
-AppRegistry.registerComponent('exampleNotifiFB', () => HomeNotification);
+AppRegistry.registerComponent('exampleNotifiFB', () => fcmPhp);
